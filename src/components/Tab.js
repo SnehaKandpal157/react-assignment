@@ -2,7 +2,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TableComponent from "./Table";
 
-const TabComponent = () => (
+const TabComponent = (props) => (
   <Tabs>
     <TabList>
       <Tab>All</Tab>
@@ -13,16 +13,16 @@ const TabComponent = () => (
     </TabList>
 
     <TabPanel>
-      <TableComponent />
+      <TableComponent {...props}/>
     </TabPanel>
     <TabPanel>
-    <TableComponent />
+    <TableComponent {...props}/>
     </TabPanel>
     <TabPanel>
-    <TableComponent />
+    <TableComponent {...props}/>
     </TabPanel>
     <TabPanel>
-    <TableComponent />
+    <TableComponent {...props}/>
     </TabPanel>
   </Tabs>
 );

@@ -86,13 +86,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     textAlign: "center"
   },
-  firstCard:{
-    display:"flex",
+  firstCard: {
+    display: "flex",
     paddingTop: 0,
     paddingBottom: 0,
     alignItems: "center",
   },
-  bullet:{
+  bullet: {
     height: 10,
     width: 10,
     background: "#0f86ec",
@@ -133,20 +133,20 @@ export default function AltCard() {
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Customer Name:
+                Customer Name:
               </Typography>
               <Typography variant="subtitle2">
-              Fred Beans
+                Fred Beans
               </Typography>
             </CardContent>
-            <CardContent className={classes.firstCard}>
+            <CardContent className={classes.firstCard} style={{ paddingBottom: "20px", borderBottom: "1px solid silver",borderRadius: "10px" }}>
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Salesperson:
+                Salesperson:
               </Typography>
               <Typography variant="subtitle2">
-              Henry Ford
+                Henry Ford
               </Typography>
             </CardContent>
 
@@ -159,20 +159,20 @@ export default function AltCard() {
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Customer Name:
+                Customer Name:
               </Typography>
               <Typography variant="subtitle2">
-              Joe Sample
+                Joe Sample
               </Typography>
             </CardContent>
-            <CardContent className={classes.firstCard}>
+            <CardContent className={classes.firstCard} style={{ paddingBottom: "20px", borderBottom: "1px solid silver",borderRadius: "10px" }}>
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Salesperson:
+                Salesperson:
               </Typography>
               <Typography variant="subtitle2">
-              Mark Stein
+                Mark Stein
               </Typography>
             </CardContent>
 
@@ -185,20 +185,20 @@ export default function AltCard() {
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Customer Name:
+                Customer Name:
               </Typography>
               <Typography variant="subtitle2">
-              Cheri Bridwell
+                Cheri Bridwell
               </Typography>
             </CardContent>
-            <CardContent className={classes.firstCard}>
+            <CardContent className={classes.firstCard} style={{ paddingBottom: "20px", borderBottom: "1px solid silver",marginBottom: "30px",borderRadius: "10px"}}>
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
-              Salesperson:
+                Salesperson:
               </Typography>
               <Typography variant="subtitle2">
-              Jill Harris
+                Jill Harris
               </Typography>
             </CardContent>
           </Card>
@@ -478,7 +478,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Nick Pending
               </Typography>
@@ -487,7 +487,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Mike Frost
               </Typography>
@@ -496,7 +496,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Gus Gibbons
               </Typography>
@@ -505,7 +505,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Adam Weiss
               </Typography>
@@ -514,7 +514,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Eric Bloom
               </Typography>
@@ -523,7 +523,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver' }}>
               <Typography variant="body2">
                 Jose Rivas
               </Typography>
@@ -532,7 +532,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
 
-            <CardContent className={classes.rowWrap} style={{borderBottom:'1px solid silver',marginBottom: '20px'}}>
+            <CardContent className={classes.rowWrap} style={{ borderBottom: '1px solid silver', marginBottom: '20px' }}>
               <Typography variant="body2">
                 William Chang
               </Typography>

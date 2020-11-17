@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchField from "react-search-field";
 import ModalExample from "./Modal";
-function header() {
+function header(props) {
   return (
     <div className="header-outer-wrap">
       <div className="header-inner-wrap">
@@ -10,7 +10,7 @@ function header() {
           // onChange={onChange}
           className="search-bar"
         />
-        <ModalExample />
+        <ModalExample {...props}/>
       </div>
     </div>
   )

@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Table } from 'reactstrap';
 import { Button } from 'reactstrap';
 import SearchField from "react-search-field";
-import higherOrderComponent from "./Hoc";
 import { _isEmpty } from "lodash";
-
+import localForage from "localforage";
 
 function TableComponent(props) {
+  const [dataList, setDataList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      if (searchResult) {
+        setDataList(searchResult)
+      }
+    }
+    else {
+      localForage.getItem("data", (_error, data) => {
+        setDataList(data)
+      })
+    }
+  }, [props.dataArray,searchTerm,searchResult])
+
+  const handleSearch = (value, event) => {
+    console.log(value)
+    setSearchTerm(value)
+    const searchResult = dataList.filter((data) => data.customer_name === value)
+    console.log("searchResult",searchResult)
+    setSearchResult([searchResult])
+  }
   return (
     <div>
       <div className="table-header">
         <div className="left-wrap">
           <SearchField
             placeholder="Input Search Text"
-            // onChange={onChange}
+            onChange={handleSearch}
             className="search-bar"
           />
           <Button >Filter</Button>
@@ -45,7 +68,7 @@ function TableComponent(props) {
         <tbody>
           {(props.dataArray) && props.dataArray.map((data) => {
             return (
-              <tr>
+              <tr key={data.customer_name}>
                 <th scope="row"><i class="fa fa-plus" aria-hidden="true"></i></th>
                 <td>{data.date}</td>
                 <td>{data.customer_name}</td>
@@ -57,7 +80,7 @@ function TableComponent(props) {
                 <td>{data.trade ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
                 <td>{data.vehicle}</td>
                 <td>{data.deal_type}</td>
-                <td>{data.credit}</td>
+                <td>{data.credit ? <button className="credit-button">Credit</button> : <button className="credit-button">No Credit</button>}</td>
               </tr>
             )
 
@@ -68,4 +91,4 @@ function TableComponent(props) {
   )
 }
 
-export default higherOrderComponent(TableComponent);
+export default TableComponent;

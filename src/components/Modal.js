@@ -3,7 +3,6 @@ import { Button, Input, Label, Modal, ModalHeader, ModalBody, ModalFooter } from
 import Radio from '@material-ui/core/Radio';
 import Checkbox from '@material-ui/core/Checkbox';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import higherOrderComponent from "./Hoc";
 import _get from "lodash/get";
 
 const ModalExample = (props) => {
@@ -59,12 +58,17 @@ const ModalExample = (props) => {
             checked={props.data.trade}
             onChange={props.handleCheckBoxChange}
           />
+          <br/>
           <Label>Vehicle</Label>
           <Input type="text" value={props.data.vehicle} name="vehicle" onChange={props.handleChange} />
           <Label>Deal Type</Label>
           <Input type="text" name="deal_type" value={props.data.deal_type} onChange={props.handleChange} />
           <Label>Credit</Label>
-          <Input type="text" name="credit" value={props.data.credit} onChange={props.handleChange} />
+          <Checkbox
+            name="credit"
+            checked={props.data.credit}
+            onChange={props.handleCheckBoxChange}
+          />
         </ModalBody>
         <ModalFooter>
           <Button color="primary"
@@ -79,4 +83,4 @@ const ModalExample = (props) => {
   );
 }
 
-export default higherOrderComponent(ModalExample);
+export default ModalExample;

@@ -142,3 +142,17 @@ button.Valid {
   border: 1px solid #c5bfbf;
   padding: 1px 2px;
 }
+
+.credit-button{
+  border: 1px solid #03a9f4;
+  color: #03a9f4;
+  background: none;
+}
+
+.table td{
+  text-align: center;
+}
+
+.MuiPaper-root.MuiCard-root.MuiPaper-elevation1.MuiPaper-rounded {
+  padding: 0 10px;
+}
