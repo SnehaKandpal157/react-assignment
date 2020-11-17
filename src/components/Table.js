@@ -1,33 +1,32 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table } from 'reactstrap';
 import { Button } from 'reactstrap';
 import SearchField from "react-search-field";
 import { _isEmpty } from "lodash";
 import localForage from "localforage";
 
-function TableComponent(props) {
+const TableComponent = (props) => {
   const [dataList, setDataList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
-  useEffect(() => {
-    if (searchTerm) {
-      if (searchResult) {
-        setDataList(searchResult)
-      }
-    }
-    else {
-      localForage.getItem("data", (_error, data) => {
-        setDataList(data)
-      })
-    }
-  }, [props.dataArray,searchTerm,searchResult])
+  // useEffect(() => {
+  //   if (searchTerm) {
+  //     if (searchResult) {
+  //       setDataList(searchResult)
+  //     }
+  //   }
+  //   else {
+  //     localForage.getItem("data", (_error, data) => {
+  //       setDataList(data)
+  //     })
+  //   }
+  // }, [props.dataArray,searchTerm,searchResult])
 
   const handleSearch = (value, event) => {
-    console.log(value)
     setSearchTerm(value)
     const searchResult = dataList.filter((data) => data.customer_name === value)
-    console.log("searchResult",searchResult)
+    console.log("searchResult", searchResult)
     setSearchResult([searchResult])
   }
   return (
@@ -36,7 +35,7 @@ function TableComponent(props) {
         <div className="left-wrap">
           <SearchField
             placeholder="Input Search Text"
-            onChange={handleSearch}
+            // onChange={handleSearch}
             className="search-bar"
           />
           <Button >Filter</Button>

@@ -23,8 +23,8 @@ body{
 }
 
 canvas.chartjs-render-monitor {
-  width: 170px !important;
-  height: 80px !important;
+  width: 160px !important;
+  height: 75px !important;
 }
 
 .chart-wrap{

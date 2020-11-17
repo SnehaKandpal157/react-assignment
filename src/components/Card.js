@@ -102,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function AltCard() {
+export default function CardComponent() {
   const classes = useStyles();
 
   return (
@@ -191,7 +191,7 @@ export default function AltCard() {
                 Cheri Bridwell
               </Typography>
             </CardContent>
-            <CardContent className={classes.firstCard} style={{ paddingBottom: "20px", borderBottom: "1px solid silver",marginBottom: "30px",borderRadius: "10px"}}>
+            <CardContent className={classes.firstCard} style={{ paddingBottom: "20px", borderBottom: "1px solid silver",marginBottom: "40px",borderRadius: "10px"}}>
               <Typography className={classes.bullet}>
               </Typography>
               <Typography variant="subtitle2">
@@ -267,7 +267,7 @@ export default function AltCard() {
               </Typography>
             </CardContent>
             <Grid className={classes.bottomGrid}>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#3275d9",marginBottom: "11px",borderRadius: "10px",padding: "10px 30px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Total Ups
               </Typography>
@@ -275,7 +275,7 @@ export default function AltCard() {
                   95
               </Typography>
               </CardContent>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#a832d9",marginLeft: "5px",marginBottom: "11px",borderRadius: "10px",padding: "10px 35px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Total Delivered
               </Typography>
@@ -283,7 +283,7 @@ export default function AltCard() {
                   25
               </Typography>
               </CardContent>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#ea8b2a",marginLeft: "5px",marginBottom: "11px",borderRadius: "10px",padding: "10px 35px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Closing Ratio
               </Typography>
@@ -360,7 +360,7 @@ export default function AltCard() {
 
 
             <Grid className={classes.bottomGrid}>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#3275d9",marginBottom: "11px",borderRadius: "10px",padding: "10px 30px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Total Ups
               </Typography>
@@ -368,7 +368,7 @@ export default function AltCard() {
                   95
               </Typography>
               </CardContent>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#a832d9",marginLeft: "5px",marginBottom: "11px",borderRadius: "10px",padding: "10px 35px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Total Delivered
               </Typography>
@@ -376,7 +376,7 @@ export default function AltCard() {
                   25
               </Typography>
               </CardContent>
-              <CardContent className={classes.footer}>
+              <CardContent className={classes.footer} style={{background: "#ea8b2a",marginLeft: "5px",marginBottom: "11px",borderRadius: "10px",padding: "10px 35px 5px 10px !important",color: "white"}}>
                 <Typography variant="body2">
                   Closing Ratio
               </Typography>
@@ -438,8 +438,7 @@ export default function AltCard() {
                 </Input>
               </FormGroup>
               <FormGroup>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>Employee Category</option>
+                <Input type="date" name="select" id="exampleSelect">
                 </Input>
               </FormGroup>
               <FormGroup>

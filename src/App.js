@@ -38,7 +38,6 @@ class App extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("name, checked", name, value)
     let updatedFormData = {};
     const { data } = this.state;
     updatedFormData = {
@@ -82,10 +81,10 @@ class App extends React.Component {
         customer_name: "",
         lead_origin: "",
         salesperson: "",
-        license: "",
-        privacy: "",
-        test_drive: "",
-        trade: "",
+        license: "Valid",
+        privacy: false,
+        test_drive: false,
+        trade: false,
         vehicle: "",
         deal_type: "",
         credit: ""
@@ -102,10 +101,10 @@ class App extends React.Component {
         customer_name: "",
         lead_origin: "",
         salesperson: "",
-        license: "",
-        privacy: "",
-        test_drive: "",
-        trade: "",
+        license: "Valid",
+        privacy: false,
+        test_drive: false,
+        trade: false,
         vehicle: "",
         deal_type: "",
         credit: ""

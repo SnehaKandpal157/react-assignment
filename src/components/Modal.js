@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import _get from "lodash/get";
 
-const ModalExample = (props) => {
+const ModalComponent = (props) => {
   const {
     className
   } = props;
@@ -21,7 +21,7 @@ const ModalExample = (props) => {
           <Label>Customer Name</Label>
           <Input type="text" name="customer_name" value={_get(props.data, "customer_name", "")} onChange={props.handleChange} />
           <Label>Lead Origin</Label>
-          <Input type="text" name="lead_orgin" value={props.data.lead_orgin} onChange={props.handleChange} />
+          <Input type="text" name="lead_origin" value={props.data.lead_orgin} onChange={props.handleChange} />
           <Label>Salesperson</Label>
           <Input type="text" name="salesperson" value={props.data.salesperson} onChange={props.handleChange} />
           <Label>License</Label>
@@ -83,4 +83,4 @@ const ModalExample = (props) => {
   );
 }
 
-export default ModalExample;
+export default ModalComponent;
