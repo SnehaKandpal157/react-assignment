@@ -1,82 +1,71 @@
 import React from 'react';
-import ReactTable from 'react-table-6';
-import 'react-table-6/react-table.css';
+import { Table } from 'reactstrap';
+import { Button } from 'reactstrap';
+import SearchField from "react-search-field";
+import higherOrderComponent from "./Hoc";
+import { _isEmpty } from "lodash";
 
-function Table() {
-  const data = [{
-    name: 'Ayaan',
-    age: 26
-  }, {
-    name: 'Ahana',
-    age: 22
-  }, {
-    name: 'Peter',
-    age: 40
-  }, {
-    name: 'Virat',
-    age: 30
-  }, {
-    name: 'Rohit',
-    age: 32
-  }, {
-    name: 'Dhoni',
-    age: 37
-  }]
-  const columns = [
- {
-    Header: 'DATE',
-    accessor: 'date'
-  }, {
-    Header: 'CUSTOMER NAME',
-    accessor: 'customer name'
-  },
-  {
-    Header: 'LEAD ORIGIN',
-    accessor: 'lead origin'
-  },
-  {
-    Header: 'SALESPERSON',
-    accessor: 'salesperson'
-  },
-  {
-    Header: 'LICENSE',
-    accessor: 'license'
-  },
-  {
-    Header: 'PRIVACY',
-    accessor: 'privacy'
-  },
-  {
-    Header: 'TEST DRIVE',
-    accessor: 'test drive'
-  },
-  {
-    Header: 'TRADE',
-    accessor: 'trade'
-  },
-  {
-    Header: 'VEHICLE',
-    accessor: 'vehicle'
-  },
-  {
-    Header: 'DEAL TYPE',
-    accessor: 'deal type'
-  },
-  {
-    Header: 'CREDIT',
-    accessor: 'credit'
-  }
-]
+
+function TableComponent(props) {
   return (
     <div>
-      <ReactTable
-        data={data}
-        columns={columns}
-        defaultPageSize={2}
-        pageSizeOptions={[3, 6]}
-      />
+      <div className="table-header">
+        <div className="left-wrap">
+          <SearchField
+            placeholder="Input Search Text"
+            // onChange={onChange}
+            className="search-bar"
+          />
+          <Button >Filter</Button>
+        </div>
+        <div className="right-wrap">
+          <div><i class="fa fa-check pending" aria-hidden="true"></i> <span className="icon-span">PENDING</span></div>
+          <div><i class="fa fa-check requirement" aria-hidden="true"></i> <span className="icon-span">REQUIREMENTS HAVE BEEN MET</span></div>
+          <div> <i class="fa fa-times action-required" aria-hidden="true"></i> <span className="icon-span">ACTION REQUIRED</span></div>
+          <div> <i class="fa fa-ban no-data" aria-hidden="true"></i> <span className="icon-span">NO DATA</span></div>
+        </div>
+      </div>
+      <Table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>DATE</th>
+            <th>CUSTOMER NAME</th>
+            <th>LEAD ORIGIN</th>
+            <th>SALESPERSON</th>
+            <th>LICENSE</th>
+            <th>PRIVACY</th>
+            <th>TEST DRIVE</th>
+            <th>TRADE</th>
+            <th>VEHICLE</th>
+            <th>DEAL TYPE</th>
+            <th>CREDIT</th>
+          </tr>
+        </thead>
+        <tbody>
+          {(props.dataArray) && props.dataArray.map((data) => {
+            return (
+              <tr>
+                <th scope="row"><i class="fa fa-plus" aria-hidden="true"></i></th>
+                <td>{data.date}</td>
+                <td>{data.customer_name}</td>
+                <td>{data.lead_origin}</td>
+                <td>{data.salesperson}</td>
+                <td><button className={`${data.license}`}>{data.license}</button></td>
+                <td>{data.privacy ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
+                <td>{data.test_drive ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
+                <td>{data.trade ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
+                <td>{data.vehicle}</td>
+                <td>{data.deal_type}</td>
+                <td>{data.credit}</td>
+              </tr>
+            )
+
+          })}
+        </tbody>
+      </Table>
     </div>
   )
 }
 
-export default Table
+export default higherOrderComponent(TableComponent);

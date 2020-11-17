@@ -3,76 +3,75 @@ import { Button, Input, Label, Modal, ModalHeader, ModalBody, ModalFooter } from
 import Radio from '@material-ui/core/Radio';
 import Checkbox from '@material-ui/core/Checkbox';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import higherOrderComponent from "./Hoc";
+import _get from "lodash/get";
 
 const ModalExample = (props) => {
   const {
     className
   } = props;
 
-  const [modal, setModal] = useState(false);
-  const [data, setData] = useState([{
-    date: "",
-    customer_name: "",
-    lead_origin: "",
-    salesperson: "",
-    license: "",
-    privacy: "",
-    test_drive: "",
-    trade: "",
-    vehicle: "",
-    deal_type: "",
-    credit: ""
-  }])
-
-  const handleChange = (e) => {
-    console.log("event", e.target.name,e.target.value)
-  }
-
-  const toggle = () => setModal(!modal);
-
   return (
     <div>
-      <Button color="primary" onClick={toggle}>New+</Button>
-      <Modal isOpen={modal} scrollable toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+      <Button color="primary" onClick={props.handleToggleModal}>New+</Button>
+      <Modal isOpen={props.modal} scrollable toggle={props.handleToggleModal} className={className}>
+        <ModalHeader toggle={props.handleToggleModal}>Modal title</ModalHeader>
         <ModalBody>
           <Label>Date</Label>
-          <Input type="text" name="" onClick={handleChange} />
+          <Input type="date" name="date" value={_get(props.data, "date", "")} onChange={props.handleChange} />
           <Label>Customer Name</Label>
-          <Input type="text" name="" />
+          <Input type="text" name="customer_name" value={_get(props.data, "customer_name", "")} onChange={props.handleChange} />
           <Label>Lead Origin</Label>
-          <Input type="text" name="" />
+          <Input type="text" name="lead_orgin" value={props.data.lead_orgin} onChange={props.handleChange} />
           <Label>Salesperson</Label>
-          <Input type="text" name="" />
+          <Input type="text" name="salesperson" value={props.data.salesperson} onChange={props.handleChange} />
           <Label>License</Label>
-          <Radio /><br />
+          <Radio
+            checked={_get(props.data, "license", "") === "Valid"}
+            onChange={props.handleChange}
+            value="Valid"
+            name="license"
+          />
+          Valid
+          <Radio
+            checked={_get(props.data, "license", "") === "Expired"}
+            onChange={props.handleChange}
+            value="Expired"
+            name="license"
+          />
+          Expired
+          <br/>
           <Label>Privacy</Label>
           <Checkbox
-            // checked={checked}
-            // onChange={handleChange}
-            inputProps={{ 'aria-label': 'primary checkbox' }}
+            name="privacy"
+            checked={props.data.privacy}
+            onChange={props.handleCheckBoxChange}
           /><br />
           <Label>Test Drive</Label>
           <Checkbox
-            // checked={checked}
-            // onChange={handleChange}
-            inputProps={{ 'aria-label': 'primary checkbox' }}
+            name="test_drive"
+            checked={props.data.test_drive}
+            onChange={props.handleCheckBoxChange}
           /><br />
           <Label>Trade</Label>
-          <Input type="text" name="" />
+          <Checkbox
+            name="trade"
+            checked={props.data.trade}
+            onChange={props.handleCheckBoxChange}
+          />
           <Label>Vehicle</Label>
-          <Input type="text" name="" />
+          <Input type="text" value={props.data.vehicle} name="vehicle" onChange={props.handleChange} />
           <Label>Deal Type</Label>
-          <Input type="text" name="" />
+          <Input type="text" name="deal_type" value={props.data.deal_type} onChange={props.handleChange} />
           <Label>Credit</Label>
-          <Input type="text" name="" />
+          <Input type="text" name="credit" value={props.data.credit} onChange={props.handleChange} />
         </ModalBody>
         <ModalFooter>
           <Button color="primary"
-            onClick={toggle}
+            onClick={props.handleSave}
           >Save</Button>{' '}
           <Button color="secondary"
-            onClick={toggle}
+            onClick={props.handleToggleModal}
           >Cancel</Button>
         </ModalFooter>
       </Modal>
@@ -80,4 +79,4 @@ const ModalExample = (props) => {
   );
 }
 
-export default ModalExample;
+export default higherOrderComponent(ModalExample);

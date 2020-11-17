@@ -6,9 +6,6 @@ import Switch from '@material-ui/core/Switch';
 
 export default class App extends React.Component {
   render() {
-    data.map((eachState) => {
-      console.log("data", eachState.state)
-    })
     return (
       <div className="chart-wrap">
         <div className="chart-outer-wrap">
