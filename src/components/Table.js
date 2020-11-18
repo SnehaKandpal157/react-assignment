@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Table } from 'reactstrap';
 import { Button } from 'reactstrap';
 import SearchField from "react-search-field";
-import { _isEmpty } from "lodash";
-import localForage from "localforage";
 
 const TableComponent = (props) => {
-  const [dataList, setDataList] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
+  // const [dataList, setDataList] = useState([]);
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [searchResult, setSearchResult] = useState([]);
 
   // useEffect(() => {
   //   if (searchTerm) {
@@ -23,12 +21,12 @@ const TableComponent = (props) => {
   //   }
   // }, [props.dataArray,searchTerm,searchResult])
 
-  const handleSearch = (value, event) => {
-    setSearchTerm(value)
-    const searchResult = dataList.filter((data) => data.customer_name === value)
-    console.log("searchResult", searchResult)
-    setSearchResult([searchResult])
-  }
+  // const handleSearch = (value, event) => {
+  //   setSearchTerm(value)
+  //   const searchResult = dataList.filter((data) => data.customer_name === value)
+  //   console.log("searchResult", searchResult)
+  //   setSearchResult([searchResult])
+  // }
   return (
     <div>
       <div className="table-header">
@@ -65,20 +63,20 @@ const TableComponent = (props) => {
           </tr>
         </thead>
         <tbody>
-          {(props.dataArray) && props.dataArray.map((data) => {
+          {(props.dataArray) && props.dataArray.map((data,index) => {
             return (
-              <tr key={data.customer_name}>
+              <tr key={index}>
                 <th scope="row"><i class="fa fa-plus" aria-hidden="true"></i></th>
-                <td>{data.date}</td>
-                <td>{data.customer_name}</td>
-                <td>{data.lead_origin}</td>
-                <td>{data.salesperson}</td>
+                <td>{data.date ? data.data : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
+                <td>{data.customer_name ? data.customer_name : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
+                <td>{data.lead_origin ? data.lead_origin : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
+                <td>{data.salesperson ? data.salesperson : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
                 <td><button className={`${data.license}`}>{data.license}</button></td>
                 <td>{data.privacy ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
                 <td>{data.test_drive ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
                 <td>{data.trade ? <i class="fa fa-check requirement" aria-hidden="true"></i> : <i class="fa fa-times action-required" aria-hidden="true"></i>}</td>
-                <td>{data.vehicle}</td>
-                <td>{data.deal_type}</td>
+                <td>{data.vehicle ? data.vehicle : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
+                <td>{data.deal_type ? data.deal_type : <i class="fa fa-ban no-data" aria-hidden="true"></i>}</td>
                 <td>{data.credit ? <button className="credit-button">Credit</button> : <button className="credit-button">No Credit</button>}</td>
               </tr>
             )
